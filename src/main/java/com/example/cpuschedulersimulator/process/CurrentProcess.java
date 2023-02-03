@@ -1,12 +1,15 @@
 package com.example.cpuschedulersimulator.process;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class CurrentProcess {
-    public ArrayList<Job> tableData = new ArrayList<Job>();
+    public ObservableList<Job> tableData = FXCollections.observableArrayList();
     public Job currentJob;
 
-    public ArrayList<Job> getTableData() {
+    public ObservableList<Job> getTableData() {
         return tableData;
     }
 
@@ -14,7 +17,7 @@ public class CurrentProcess {
         return currentJob;
     }
 
-    public void setTableData(ArrayList<Job> tableData) {
+    public void setTableData(ObservableList<Job> tableData) {
         this.tableData = tableData;
     }
 

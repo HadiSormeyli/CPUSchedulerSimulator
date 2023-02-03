@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.cpuschedulersimulator/com.example.cpuschedulersimulator.HelloApplication
+                                com.example.cpuschedulersimulator/com.example.cpuschedulersimulator.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

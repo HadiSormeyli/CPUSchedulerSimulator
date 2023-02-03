@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cpuschedulersimulator.process.ui.AddProcessController">
+    <children>
+        <Label fx:id="processNumber" text="Process 1:">
+            <HBox.margin>
+                <Insets left="8.0" />
+            </HBox.margin>
+        </Label>
+        <TextField fx:id="arriveFiled" prefHeight="26.0" prefWidth="95.0">
+            <HBox.margin>
+                <Insets left="8.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="burstFiled" prefHeight="26.0" prefWidth="95.0">
+            <HBox.margin>
+                <Insets left="8.0" />
+            </HBox.margin>
+        </TextField>
+    </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</HBox>

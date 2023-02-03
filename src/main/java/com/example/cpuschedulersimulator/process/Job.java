@@ -1,5 +1,7 @@
 package com.example.cpuschedulersimulator.process;
 
+import javafx.scene.paint.Color;
+
 import java.util.Comparator;
 
 public class Job {
@@ -15,8 +17,19 @@ public class Job {
     public boolean finished;
     public boolean started;
     public int turnAroundTime;
+    private final Color color = Color.color(Math.random(), Math.random(), Math.random());
 
-    public Job(int jobNo, int arrivalTime, int burstTime){
+
+    public Color getColor() {
+        return color;
+    }
+
+
+    public Job(int jobNo) {
+        this.jobNo = jobNo;
+    }
+
+    public Job(int jobNo, int arrivalTime, int burstTime) {
         this.jobNo = jobNo;
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
@@ -34,7 +47,7 @@ public class Job {
         this.waitTime = startTime - arrivalTime;
     }
 
-    public void incrementWaitTime(){
+    public void incrementWaitTime() {
         this.waitTime = this.waitTime + 1;
     }
 
@@ -117,7 +130,7 @@ public class Job {
         return turnAroundTime;
     }
 
-    public Job getCopy(){
+    public Job getCopy() {
         Job copy = new Job(this.jobNo, this.arrivalTime, this.burstTime);
         return copy;
     }
@@ -174,10 +187,9 @@ public class Job {
     }
 
 
-
     @Override
     public String toString() {
-        return "[ jobNo=" + jobNo + ", arrivalTime=" + arrivalTime + ", burstTime=" + burstTime + ", remainingTime =" + remainingTime +", startTime=" + startTime + ", "
+        return "[ jobNo=" + jobNo + ", arrivalTime=" + arrivalTime + ", burstTime=" + burstTime + ", remainingTime =" + remainingTime + ", startTime=" + startTime + ", "
                 + "waitTime=" + waitTime + ", finishedTime=" + finishedTime + ", finished=" + finished + ", turnAroundTime=" + turnAroundTime + "] \n";
     }
 }
