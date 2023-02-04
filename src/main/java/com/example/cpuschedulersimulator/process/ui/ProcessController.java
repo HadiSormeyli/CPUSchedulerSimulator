@@ -30,7 +30,7 @@ public class ProcessController {
     public Label waitingTime;
     public Label turnaroundTime;
     public Label throughput;
-    public HBox addProcessToot;
+    public HBox addProcessRoot;
     public GridPane gridList;
     public Button addProcess;
     public Button cancelButton;
@@ -72,7 +72,7 @@ public class ProcessController {
         });
 
         okButton.setOnAction(actionEvent -> {
-            addProcessToot.setVisible(false);
+            addProcessRoot.setVisible(false);
             enableButtons();
 
             table.setItems(jobs);
@@ -179,20 +179,19 @@ public class ProcessController {
         TableColumn<Job, String> turnaround = new TableColumn<>("Turnaround");
         turnaround.setCellValueFactory(new PropertyValueFactory<>("turnAroundTime"));
 
-        table.setItems(jobs);
         table.getColumns().addAll(number, arriveTime, burstTime, startTime, waitTime, remainingTime, finishTime, turnaround);
     }
 
     @FXML
     private void setProcessAction(ActionEvent actionEvent) {
         actionEvent.consume();
-        addProcessToot.setVisible(true);
+        addProcessRoot.setVisible(true);
         addProcess();
     }
 
     public void cancelButtonAction(ActionEvent actionEvent) {
         actionEvent.consume();
-        addProcessToot.setVisible(false);
+        addProcessRoot.setVisible(false);
     }
 
     private int getSelectedAlgorithm() {
@@ -209,7 +208,7 @@ public class ProcessController {
     }
 
     private void nextStep() {
-        CurrentProcess currentProcess = CPU.nextStep(time);
+        CurrentProcess currentProcess = CPU.nextProcessStep(time);
 
         Platform.runLater(() -> {
             table.setItems(currentProcess.tableData);
@@ -272,7 +271,7 @@ public class ProcessController {
         stop = false;
         stopButton.setText("Stop");
         algorithm = getSelectedAlgorithm();
-        CPU.setAlgorithm(algorithm);
+        CPU.setProcessAlgorithm(algorithm);
         CPU.setQuantum(Integer.parseInt(quantumFiled.getText()));
         Task<Void> task = new Task<>() {
             @Override

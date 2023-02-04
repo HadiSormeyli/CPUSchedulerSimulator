@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.cpuschedulersimulator.memory.ui.MemoryController">
+    <children>
+        <HBox prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <VBox prefHeight="600.0" prefWidth="400.0">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <VBox prefHeight="118.0" prefWidth="238.0">
+                                <HBox.margin>
+                                    <Insets left="8.0"/>
+                                </HBox.margin>
+                                <children>
+                                    <Button fx:id="resetButton" mnemonicParsing="false" prefHeight="26.0"
+                                            prefWidth="237.0"
+                                            text="Reset">
+                                        <VBox.margin>
+                                            <Insets top="4.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="setProcess" mnemonicParsing="false"
+                                            prefHeight="26.0" prefWidth="335.0" text="Set Process">
+                                        <VBox.margin>
+                                            <Insets top="4.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                </children>
+                                <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                                </padding>
+                            </VBox>
+
+                            <VBox prefHeight="118.0" prefWidth="271.0">
+                                <HBox.margin>
+                                    <Insets left="8.0"/>
+                                </HBox.margin>
+                                <children>
+                                    <Label fx:id="memorySize" text="Memory size"/>
+                                    <Label fx:id="osSize" text="OS size:">
+                                        <VBox.margin>
+                                            <Insets top="16.0"/>
+                                        </VBox.margin>
+                                    </Label>
+                                </children>
+                                <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                                </padding>
+                            </VBox>
+                        </HBox>
+                    </children>
+
+                    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
+                        <RadioButton fx:id="firstFit" selected="true" text="First fit">
+                            <HBox.margin>
+                                <Insets left="8.0"/>
+                            </HBox.margin>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="group"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="bestFit" text="Best fit">
+                            <HBox.margin>
+                                <Insets left="8.0"/>
+                            </HBox.margin>
+                            <toggleGroup>
+                                <fx:reference source="group"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="worstFit" text="Worst fit">
+                            <HBox.margin>
+                                <Insets left="8.0"/>
+                            </HBox.margin>
+                            <toggleGroup>
+                                <fx:reference source="group"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <VBox.margin>
+                            <Insets top="8.0"/>
+                        </VBox.margin>
+                    </HBox>
+
+                    <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0"/>
+                </VBox>
+                <VBox prefHeight="600.0" prefWidth="200.0">
+                    <children>
+
+                        <ScrollPane prefHeight="300.0" prefWidth="200.0">
+                            <content>
+                                <VBox fx:id="memoryStatusLayout" prefHeight="300.0" prefWidth="200.0"/>
+                            </content>
+                        </ScrollPane>
+
+                        <Button fx:id="nextStepButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0"
+                                text="Next step">
+                            <VBox.margin>
+                                <Insets top="32.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <HBox fx:id="addProcessRoot" alignment="CENTER" prefHeight="400.0" prefWidth="705.0" visible="false">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="428.0" prefWidth="307.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label text="Add process"/>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="307.0">
+                            <children>
+                                <TextField fx:id="memorySizeFiled" promptText="Main memory size">
+                                    <HBox.margin>
+                                        <Insets left="8.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <TextField fx:id="osSizeFiled" promptText="OS size">
+                                    <HBox.margin>
+                                        <Insets left="8.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <TextField fx:id="blocksSize" promptText="Blocks size">
+                                    <HBox.margin>
+                                        <Insets left="8.0" right="8"/>
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="8.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <ScrollPane prefHeight="300.0" prefWidth="302.0">
+                            <content>
+                                <VBox alignment="TOP_CENTER" prefHeight="290.0" prefWidth="295.0">
+                                    <children>
+                                        <GridPane fx:id="gridList">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <Button fx:id="addProcess" mnemonicParsing="false" text="Add process">
+                                            <VBox.margin>
+                                                <Insets top="8.0"/>
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                            </content>
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                            </VBox.margin>
+                        </ScrollPane>
+                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="307.0">
+                            <children>
+                                <Button fx:id="okButton" mnemonicParsing="false" text="OK"/>
+                                <Button fx:id="cancelButton" mnemonicParsing="false"
+                                        text="Cancel">
+                                    <HBox.margin>
+                                        <Insets left="8.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+            </padding>
+        </HBox>
+    </children>
+</AnchorPane>

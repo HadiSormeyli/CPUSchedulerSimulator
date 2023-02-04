@@ -9,11 +9,7 @@ public class AddProcessController {
     public TextField arriveFiled;
     public TextField burstFiled;
 
-
-    private Job job;
-
     public void setJob(Job job) {
-        this.job = job;
         processNumber.setText("Process " + job.jobNo + " :");
 
         arriveFiled.textProperty().addListener((observableValue, s, t1) -> {
@@ -41,13 +37,5 @@ public class AddProcessController {
                     burstFiled.setText("0");
                 }
         });
-    }
-
-    public void setUpJob() {
-        int arriveTime = Integer.parseInt(arriveFiled.getText());
-        int burstTime = Integer.parseInt(burstFiled.getText());
-
-        job.setArrivalTime(arriveTime);
-        job.setBurstTime(burstTime);
     }
 }

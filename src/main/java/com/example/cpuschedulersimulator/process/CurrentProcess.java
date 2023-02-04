@@ -3,8 +3,6 @@ package com.example.cpuschedulersimulator.process;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-
 public class CurrentProcess {
     public ObservableList<Job> tableData = FXCollections.observableArrayList();
     public Job currentJob;

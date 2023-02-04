@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cpuschedulersimulator.process.ui.ProcessController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="705.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.cpuschedulersimulator.process.ui.ProcessController">
     <children>
         <VBox prefHeight="400.0" prefWidth="705.0">
             <children>
@@ -12,62 +13,72 @@
                     <children>
                         <VBox prefHeight="118.0" prefWidth="238.0">
                             <HBox.margin>
-                                <Insets left="8.0" />
+                                <Insets left="8.0"/>
                             </HBox.margin>
                             <children>
-                                <Button fx:id="startButton" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="253.0" text="Start">
+                                <Button fx:id="startButton" disable="true" mnemonicParsing="false" prefHeight="26.0"
+                                        prefWidth="253.0" text="Start">
 
                                 </Button>
-                                <Button fx:id="stopButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" text="Stop" textAlignment="CENTER">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="resetButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="237.0" text="Reset">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="setProcess" mnemonicParsing="false" onAction="#setProcessAction" prefHeight="26.0" prefWidth="335.0" text="Set Process">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin></Button>
+                                <Button fx:id="stopButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0"
+                                        text="Stop" textAlignment="CENTER">
+                                    <VBox.margin>
+                                        <Insets top="4.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="resetButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="237.0"
+                                        text="Reset">
+                                    <VBox.margin>
+                                        <Insets top="4.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="setProcess" mnemonicParsing="false" onAction="#setProcessAction"
+                                        prefHeight="26.0" prefWidth="335.0" text="Set Process">
+                                    <VBox.margin>
+                                        <Insets top="4.0"/>
+                                    </VBox.margin>
+                                </Button>
                             </children>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
                         </VBox>
                         <VBox prefHeight="118.0" prefWidth="271.0">
                             <HBox.margin>
-                                <Insets left="8.0" />
+                                <Insets left="8.0"/>
                             </HBox.margin>
                             <children>
-                                <Label fx:id="waitingTime" text="Average waiting time:" />
+                                <Label fx:id="waitingTime" text="Average waiting time:"/>
                                 <Label fx:id="turnaroundTime" text="Average turnaround time:">
-                           <VBox.margin>
-                              <Insets top="16.0" />
-                           </VBox.margin></Label>
+                                    <VBox.margin>
+                                        <Insets top="16.0"/>
+                                    </VBox.margin>
+                                </Label>
                                 <Label fx:id="throughput" text="Throughput:">
-                           <VBox.margin>
-                              <Insets top="16.0" />
-                           </VBox.margin></Label>
+                                    <VBox.margin>
+                                        <Insets top="16.0"/>
+                                    </VBox.margin>
+                                </Label>
                             </children>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
                         </VBox>
                         <VBox prefHeight="130.0" prefWidth="172.0">
                             <HBox.margin>
-                                <Insets left="8.0" />
+                                <Insets left="8.0"/>
                             </HBox.margin>
                             <children>
-                                <Label fx:id="currentJob" text="Current Job:" />
+                                <Label fx:id="currentJob" text="Current Job:"/>
                                 <Label fx:id="currentTime" text="Current time:">
-                           <VBox.margin>
-                              <Insets top="16.0" />
-                           </VBox.margin></Label>
+                                    <VBox.margin>
+                                        <Insets top="16.0"/>
+                                    </VBox.margin>
+                                </Label>
                             </children>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
                         </VBox>
                     </children>
                 </HBox>
@@ -75,78 +86,80 @@
 
                     <RadioButton fx:id="fcfs" selected="true" text="First Come First Served">
                         <HBox.margin>
-                            <Insets left="8.0" />
+                            <Insets left="8.0"/>
                         </HBox.margin>
                         <toggleGroup>
-                            <ToggleGroup fx:id="group" />
+                            <ToggleGroup fx:id="group"/>
                         </toggleGroup>
                     </RadioButton>
                     <RadioButton fx:id="sjf" text="Shortest Job First">
                         <HBox.margin>
-                            <Insets left="8.0" />
+                            <Insets left="8.0"/>
                         </HBox.margin>
                         <toggleGroup>
-                            <fx:reference source="group" />
+                            <fx:reference source="group"/>
                         </toggleGroup>
                     </RadioButton>
                     <RadioButton fx:id="srtf" text="Shortest Remaining Time First">
                         <HBox.margin>
-                            <Insets left="8.0" />
+                            <Insets left="8.0"/>
                         </HBox.margin>
                         <toggleGroup>
-                            <fx:reference source="group" />
+                            <fx:reference source="group"/>
                         </toggleGroup>
                     </RadioButton>
                     <RadioButton fx:id="rr" text="Round Robin">
                         <HBox.margin>
-                            <Insets left="8.0" />
+                            <Insets left="8.0"/>
                         </HBox.margin>
                         <toggleGroup>
-                            <fx:reference source="group" />
+                            <fx:reference source="group"/>
                         </toggleGroup>
                     </RadioButton>
                     <Label fx:id="quantumLabel" disable="true" text="Quantum:">
                         <HBox.margin>
-                            <Insets left="8.0" />
+                            <Insets left="8.0"/>
                         </HBox.margin>
                     </Label>
-                    <TextField fx:id="quantumFiled" alignment="CENTER" disable="true" prefHeight="9.0" prefWidth="33.0" text="2">
+                    <TextField fx:id="quantumFiled" alignment="CENTER" disable="true" prefHeight="9.0" prefWidth="33.0"
+                               text="2">
                         <HBox.margin>
-                            <Insets left="4.0" />
+                            <Insets left="4.0"/>
                         </HBox.margin>
                     </TextField>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
+                    <VBox.margin>
+                        <Insets top="8.0"/>
+                    </VBox.margin>
                 </HBox>
-            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
-               <content>
-                  <HBox fx:id="gantChartLayout" prefHeight="119.0" prefWidth="695.0" />
-               </content>
-            </ScrollPane>
+                <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0"/>
+                <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                        <HBox fx:id="gantChartLayout" prefHeight="119.0" prefWidth="695.0"/>
+                    </content>
+                </ScrollPane>
             </children>
         </VBox>
-        <HBox fx:id="addProcessToot" alignment="CENTER" prefHeight="400.0" prefWidth="705.0" visible="false">
+        <HBox fx:id="addProcessRoot" alignment="CENTER" prefHeight="400.0" prefWidth="705.0" visible="false">
             <children>
                 <VBox alignment="TOP_CENTER" prefHeight="428.0" prefWidth="307.0" style="-fx-background-color: white;">
                     <children>
-                        <Label text="Add process" />
+                        <Label text="Add process"/>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="307.0">
                             <children>
                                 <Label text="Arrive">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin></Label>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </Label>
                                 <Label text="Burst">
                                     <HBox.margin>
-                                        <Insets left="40.0" />
+                                        <Insets left="40.0"/>
                                     </HBox.margin>
                                 </Label>
                             </children>
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
+                            <VBox.margin>
+                                <Insets top="8.0"/>
+                            </VBox.margin>
                         </HBox>
                         <ScrollPane prefHeight="300.0" prefWidth="302.0">
                             <content>
@@ -154,38 +167,41 @@
                                     <children>
                                         <GridPane fx:id="gridList">
                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                             </rowConstraints>
                                         </GridPane>
                                         <Button fx:id="addProcess" mnemonicParsing="false" text="Add process">
-                                 <VBox.margin>
-                                    <Insets top="8.0" />
-                                 </VBox.margin></Button>
+                                            <VBox.margin>
+                                                <Insets top="8.0"/>
+                                            </VBox.margin>
+                                        </Button>
                                     </children>
                                 </VBox>
                             </content>
-                     <VBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </VBox.margin>
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                            </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER" prefHeight="56.0" prefWidth="307.0">
                             <children>
-                                <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
-                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonAction" text="Cancel">
-                           <HBox.margin>
-                              <Insets left="8.0" />
-                           </HBox.margin></Button>
+                                <Button fx:id="okButton" mnemonicParsing="false" text="OK"/>
+                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonAction"
+                                        text="Cancel">
+                                    <HBox.margin>
+                                        <Insets left="8.0"/>
+                                    </HBox.margin>
+                                </Button>
                             </children>
                         </HBox>
                     </children>
                 </VBox>
             </children>
-         <padding>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </padding>
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+            </padding>
         </HBox>
     </children>
 </AnchorPane>

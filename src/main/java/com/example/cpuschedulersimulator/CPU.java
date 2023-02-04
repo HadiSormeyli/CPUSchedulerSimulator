@@ -1,5 +1,7 @@
 package com.example.cpuschedulersimulator;
 
+import com.example.cpuschedulersimulator.memory.Process;
+import com.example.cpuschedulersimulator.memory.*;
 import com.example.cpuschedulersimulator.process.Algorithm;
 import com.example.cpuschedulersimulator.process.CurrentProcess;
 import com.example.cpuschedulersimulator.process.FCFS.FCFS;
@@ -11,15 +13,31 @@ import javafx.collections.ObservableList;
 
 public class CPU {
 
-    private static Algorithm algorithm;
-    //public static int currentTime;
-    public static int quantum;
-    public static ObservableList<Job> jobList;
+    public static MemorySimulatorBase memorySimulatorBase;
+    public static ObservableList<Process> processList;
 
-    public static CurrentProcess nextStep(int currentTime) {
-        CurrentProcess currentProcess = algorithm.nextStep(currentTime);
-//        System.out.println(job.toString());
-        return currentProcess;
+    private static Algorithm algorithm;
+    public static ObservableList<Job> jobList;
+    public static int quantum;
+
+    public static ObservableList<Process> nextMemoryStep() {
+        return memorySimulatorBase.nextStep();
+    }
+
+    public static void setProcessList(ObservableList<Process> processList) {
+        CPU.processList = processList;
+    }
+
+    public static void setMemoryAlgorithm(int algorithm, int memorySize, int osSize, int blocksSize) {
+        switch (algorithm) {
+            case 0 -> CPU.memorySimulatorBase = new FirstFitMemorySimulator(processList, memorySize, osSize, blocksSize);
+            case 1 -> CPU.memorySimulatorBase = new BestFitMemorySimulator(processList, memorySize, osSize, blocksSize);
+            case 2 -> CPU.memorySimulatorBase = new WorstFitMemorySimulator(processList, memorySize, osSize, blocksSize);
+        }
+    }
+
+    public static CurrentProcess nextProcessStep(int currentTime) {
+        return algorithm.nextStep(currentTime);
     }
 
     public static void setJobList(ObservableList<Job> jobList) {
@@ -34,8 +52,7 @@ public class CPU {
         return quantum;
     }
 
-
-    public static void setAlgorithm(int algorithm) {
+    public static void setProcessAlgorithm(int algorithm) {
         switch (algorithm) {
             case 0 -> CPU.algorithm = new FCFS(jobList);
             case 1 -> CPU.algorithm = new SJF(jobList);

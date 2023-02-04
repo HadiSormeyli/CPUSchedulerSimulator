@@ -4,6 +4,7 @@ module com.example.cpuschedulersimulator {
 
 
     opens com.example.cpuschedulersimulator to javafx.fxml;
+    opens com.example.cpuschedulersimulator.memory.ui to javafx.fxml;
     exports com.example.cpuschedulersimulator;
     exports com.example.cpuschedulersimulator.process;
     opens com.example.cpuschedulersimulator.process to javafx.fxml;
