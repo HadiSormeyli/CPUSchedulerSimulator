@@ -131,6 +131,7 @@ public class ProcessController {
             table.setItems(null);
             table.refresh();
             stop = false;
+            allJobsDone = true;
             stopButton.setText("Stop");
             disableButtons();
             currentJob.setText("Current Job: ");
@@ -286,10 +287,10 @@ public class ProcessController {
                         }
                     }
                 }
+                cancel();
                 return null;
             }
         };
-
 
         Thread thread = new Thread(task);
         thread.setDaemon(true);

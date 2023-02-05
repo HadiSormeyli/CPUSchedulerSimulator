@@ -3,10 +3,10 @@ package com.example.cpuschedulersimulator.memory;
 
 import javafx.collections.ObservableList;
 
-public class FirstFitMemorySimulator extends MemorySimulatorBase {
+public class FirstFitMemorySimulator extends MemorySimulator {
 
-    public FirstFitMemorySimulator(ObservableList<Process> processList, int memorySize, int osSize, int blocksSize) {
-        super(processList, memorySize, osSize, blocksSize);
+    public FirstFitMemorySimulator(ObservableList<Process> processList, int memorySize, int osSize) {
+        super(processList, memorySize, osSize);
     }
 
     @Override

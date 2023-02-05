@@ -5,8 +5,6 @@ import com.example.cpuschedulersimulator.process.CurrentProcess;
 import com.example.cpuschedulersimulator.process.Job;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-
 public class SRTF extends Algorithm {
 
     public SRTF(ObservableList<Job> jobList) {
@@ -16,20 +14,16 @@ public class SRTF extends Algorithm {
     @Override
     public CurrentProcess nextStep(int currentTime) {
         Job currentJob = null;
-        //boolean newJob = true;
 
-        /**/
         addArrivedToTempQ(currentTime);
 
         sortByRemainingTime(readyQueue);
 
-
-        /**/
         if (tempQueue.isEmpty() && readyQueue.isEmpty()) {
-            currentJob = new Job(0, 0, 0); //all jobs finished
+            currentJob = new Job(0, 0, 0);
             currentProcess.setCurrentJob(currentJob);
         } else if (!tempQueue.isEmpty() && readyQueue.isEmpty()) {
-            currentJob = new Job(-1, 0, 0); //waiting
+            currentJob = new Job(-1, 0, 0);
             currentProcess.setCurrentJob(currentJob);
 
         } else if (!readyQueue.isEmpty()) {
@@ -37,9 +31,7 @@ public class SRTF extends Algorithm {
             currentJob = readyQueue.get(0);
             readyQueue.remove(currentJob);
 
-            readyQueue.forEach(job -> {
-                job.incrementWaitTime();
-            });
+            readyQueue.forEach(Job::incrementWaitTime);
 
             if (!currentJob.isStarted()) {
                 currentJob.setStartTime(currentTime);
@@ -49,12 +41,9 @@ public class SRTF extends Algorithm {
             currentJob.setRemainingTime(currentJob.remainingTime - 1);
 
             if (currentJob.remainingTime > 0) {
-                //System.out.println(currentJob.getJobNo());
                 readyQueue.add(currentJob);
                 sortByRemainingTime(readyQueue);
-
             } else if (currentJob.remainingTime == 0) {
-                //System.out.println("removed " + currentJob.getJobNo());
                 readyQueue.remove(currentJob);
                 currentJob.setFinishedTime(currentTime + 1);
 
@@ -66,8 +55,6 @@ public class SRTF extends Algorithm {
             currentProcess.setCurrentJob(currentJob);
             currentProcess.tableData.set(currentJob.getJobNo() - 1, currentJob);
         }
-        /**/
-
         return currentProcess;
     }
 }

@@ -4,18 +4,14 @@ package com.example.cpuschedulersimulator.process;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-
 import static com.example.cpuschedulersimulator.process.Job.*;
 
 
 public abstract class Algorithm {
-    ObservableList<Job> jobList;
     protected ObservableList<Job> tempQueue;
-    ObservableList<Job> currentProcessData;
     protected ObservableList<Job> readyQueue = FXCollections.observableArrayList();
-    Job currentJob;
     protected CurrentProcess currentProcess = new CurrentProcess();
+    ObservableList<Job> jobList;
 
     public Algorithm(ObservableList<Job> jobList) {
         currentProcess.setTableData(arrayListCopy(jobList));
@@ -30,8 +26,6 @@ public abstract class Algorithm {
             tempQueue.forEach(job -> {
                 if (job.arrivalTime == currentTime) {
                     readyQueue.add(job.getCopy());
-                    System.out.println("current time " + currentTime);
-                    System.out.println(job.getJobNo() + " arrived");
                 }
 
             });

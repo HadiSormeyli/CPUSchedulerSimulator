@@ -11,12 +11,12 @@ public class CurrentProcess {
         return tableData;
     }
 
-    public Job getCurrentJob() {
-        return currentJob;
-    }
-
     public void setTableData(ObservableList<Job> tableData) {
         this.tableData = tableData;
+    }
+
+    public Job getCurrentJob() {
+        return currentJob;
     }
 
     public void setCurrentJob(Job currentJob) {

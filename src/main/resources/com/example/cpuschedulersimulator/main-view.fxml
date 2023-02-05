@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cpuschedulersimulator.MainController">
+   <children>
+      <Button fx:id="memoryManagement" mnemonicParsing="false" onAction="#onMemoryManagement" text="Memory Management" />
+      <Button fx:id="processManagement" mnemonicParsing="false" onAction="#onProcessManagement" text="Process Management">
+         <VBox.margin>
+            <Insets top="8.0" />
+         </VBox.margin></Button>
+   </children>
+</VBox>

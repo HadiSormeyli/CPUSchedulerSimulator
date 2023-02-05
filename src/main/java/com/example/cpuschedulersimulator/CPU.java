@@ -13,12 +13,11 @@ import javafx.collections.ObservableList;
 
 public class CPU {
 
-    public static MemorySimulatorBase memorySimulatorBase;
+    public static MemorySimulator memorySimulatorBase;
     public static ObservableList<Process> processList;
-
-    private static Algorithm algorithm;
     public static ObservableList<Job> jobList;
     public static int quantum;
+    private static Algorithm algorithm;
 
     public static ObservableList<Process> nextMemoryStep() {
         return memorySimulatorBase.nextStep();
@@ -28,11 +27,12 @@ public class CPU {
         CPU.processList = processList;
     }
 
-    public static void setMemoryAlgorithm(int algorithm, int memorySize, int osSize, int blocksSize) {
+    public static void setMemoryAlgorithm(int algorithm, int memorySize, int osSize) {
         switch (algorithm) {
-            case 0 -> CPU.memorySimulatorBase = new FirstFitMemorySimulator(processList, memorySize, osSize, blocksSize);
-            case 1 -> CPU.memorySimulatorBase = new BestFitMemorySimulator(processList, memorySize, osSize, blocksSize);
-            case 2 -> CPU.memorySimulatorBase = new WorstFitMemorySimulator(processList, memorySize, osSize, blocksSize);
+            case 0 -> CPU.memorySimulatorBase = new FirstFitMemorySimulator(processList, memorySize, osSize);
+            case 1 -> CPU.memorySimulatorBase = new BestFitMemorySimulator(processList, memorySize, osSize);
+            case 2 -> CPU.memorySimulatorBase = new WorstFitMemorySimulator(processList, memorySize, osSize);
+            case 3 -> CPU.memorySimulatorBase = new NextFitMemorySimulator(processList, memorySize, osSize);
         }
     }
 
@@ -44,12 +44,12 @@ public class CPU {
         CPU.jobList = jobList;
     }
 
-    public static void setQuantum(int quantum) {
-        CPU.quantum = quantum;
-    }
-
     public static int getQuantum() {
         return quantum;
+    }
+
+    public static void setQuantum(int quantum) {
+        CPU.quantum = quantum;
     }
 
     public static void setProcessAlgorithm(int algorithm) {
