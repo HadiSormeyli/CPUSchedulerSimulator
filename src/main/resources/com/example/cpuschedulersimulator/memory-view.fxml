@@ -71,10 +71,14 @@
                                 <fx:reference source="group" />
                             </toggleGroup>
                         </RadioButton>
-                  <RadioButton fx:id="nextFit" mnemonicParsing="false" text="Next fit">
-                     <HBox.margin>
-                        <Insets left="8.0" />
-                     </HBox.margin></RadioButton>
+                        <RadioButton fx:id="nextFit" mnemonicParsing="false" text="Next fit">
+                            <toggleGroup>
+                                <fx:reference source="group" />
+                            </toggleGroup>
+                            <HBox.margin>
+                                <Insets left="8.0" />
+                            </HBox.margin>
+                        </RadioButton>
                         <VBox.margin>
                             <Insets top="8.0" />
                         </VBox.margin>
@@ -97,11 +101,11 @@
                                 <Insets top="8.0" />
                             </VBox.margin>
                         </Button>
-                  <Label fx:id="eventLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="204.0">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </Label>
+                        <Label fx:id="eventLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="204.0">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                        </Label>
                     </children>
                 </VBox>
             </children>
@@ -128,6 +132,25 @@
                             <VBox.margin>
                                 <Insets top="8.0" />
                             </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="307.0">
+                            <children>
+                                <Label text="Size">
+                                    <HBox.margin>
+                                        <Insets left="50.0" />
+                                    </HBox.margin>
+                                </Label>
+                                <Label text="Start time">
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </Label>
+                                <Label text="End time">
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
                         </HBox>
                         <ScrollPane prefHeight="300.0" prefWidth="302.0">
                             <content>

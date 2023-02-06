@@ -22,6 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProcessController {
 
+    private final ObservableList<Job> jobs = FXCollections.observableArrayList();
     public Button startButton;
     public Button stopButton;
     public Button resetButton;
@@ -52,8 +53,6 @@ public class ProcessController {
     private TextField quantumFiled;
     @FXML
     private Label quantumLabel;
-
-    private final ObservableList<Job> jobs = FXCollections.observableArrayList();
     private int algorithm = 0;
     private boolean allJobsDone = false;
     private boolean stop = false;
